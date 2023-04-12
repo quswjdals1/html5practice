@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+<script type="text/javascript">
+let today= new Date();
+let day2 = new Date(10000);
+let day3 = new Date("2000.08.12")
+let day4 = new Date(2000,08,12)
+
+proc2 = ()=>{
+	res="";
+	day=today.getDay()
+	switch(day){
+	case 0:
+		res="일요일";
+		break;
+	case 1:
+		res="월요일";
+		break;
+	case 2:
+		res="화요일";
+		break;
+	case 3:
+		res="수요일";
+		break;
+	case 4:
+		res="목요일";
+		break;
+	case 5:
+		res="금요일";
+		break;
+	case 6:
+		res="토요일";
+		break;
+	}
+}
+
+proc3 = ()=>{
+	res="";
+	day=today.getDay()
+	arr=["일","월","화","수","목","금","토"];
+	document.getElementById("result3").innerHTML=arr[day];
+}
+
+proc4 = ()=>{
+	mydate = new Date("2000.03.12");
+	
+	totime = today.getTime();
+	mytime = mydate.getTime();
+	
+	times=totime-mytime;
+	console.log(times);
+}
+
+proc5 = ()=>{
+	birdate=new Date("1998.09.06");
+	curdate=new Date();
+	
+	date100=(curdate.getTime()+(1000*60*60*24*100))
+	date100= new Date(date100);
+	alert(date100.getDay()+"요일");
+	
+	birdate=birdate.getTime();
+	curdate=curdate.getTime();
+	dif = (curdate-birdate);
+	
+	str=dif/1000/60/60/24/365;
+	alert(str+"년");
+	
+}
+proc6=()=>{
+	date=document.getElementById("sel").value;
+	date = new Date(date);
+	seltime=date.getTime();
+	curdate = new Date();
+	curtime=curdate.getTime();
+	
+	dif = (curtime-seltime)/1000/60/60/24;
+	if(dif<0){
+		alert("잘못된 날짜 입력입니다.")
+		return;
+	}
+	res="";
+	if(dif>7){
+		res="교환이 불가능 합니다.";
+	}else{
+		res="교환이 가능합니다.";
+	}
+	str="현재날짜: "+ curdate.toLocaleDateString()+"<br>";
+	str+="구입날짜: "+ date.toLocaleDateString()+"<br>";
+	str+=res+"<br>";
+	document.getElementById("result6").innerHTML=str;
+}
+
+proc7=()=>{
+	xmas = new Date("2023.12.25");
+	curd = new Date();
+	
+	dif = (xmas.getTime()-curd.getTime())/1000/60/60/24;
+	alert(dif)+"일";
+}
+</script>
+</head>
+<body>
+<div class="box">
+	<p>prompt로 계속 이름을 받아 배열에 저장하고 출력하는 프로그람<br>
+		입력의 마지막은 공백문자를 입력하거나 취소버튼을 눌렀을때(null)
+	</p>
+	<input type="button" value="확인" onclick="proc1()">
+	
+	<div id="result1"></div>
+</div>
+
+
+<div class="box">
+	<p>요일구하기 : getDay():0(일요일)~6(토요일)
+	</p>
+	<input type="button" value="확인" onclick="proc2()">
+	
+<div id="result2"></div>
+</div>
+
+
+<div class="box">
+	<p>요일구하기 : getDay():0(일요일)~6(토요일)
+		배열 이용
+	</p>
+	<input type="button" value="확인" onclick="proc3()">
+	
+<div id="result3"></div>
+</div>
+
+
+
+<div class="box">
+	<p>경과시간 구하기: getTime(): millisec값을 리턴<br>
+		millisec/1000=초
+	</p>
+	<input type="button" value="확인" onclick="proc4()">
+	
+<div id="result4"></div>
+</div>
+
+<div class="box">
+	<p>태어난 날로부터 현재까지 몇년 경과했는지<br>
+	100일 후의 날짜는 언제인지?
+	</p>
+	<input type="button" value="확인" onclick="proc5()">
+	
+<div id="result5"></div>
+</div>
+
+
+<div class="box">
+	<p>선택한 날로부터 현재까지 경과일수를 구한다. 7일이상 경과했으면
+	교환 불가능 아니면 가능
+	</p>
+	<input type="date" id="sel">
+	<input type="button" value="확인" onclick="proc6()">
+	
+	
+<div id="result6"></div>
+</div>
+
+<div class="box">
+	<p>크리스마스까지 오늘부터 몇일남았나?
+	</p>
+	<input type="button" value="확인" onclick="proc7()">
+	
+	
+<div id="result7"></div>
+</div>
+
+<script src="../js/rectprint.js"></script>
+</body>
+</html>

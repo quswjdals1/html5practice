@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+<style type="text/css">
+span {
+	color: red;
+	font-size: 1.5em;
+}
+a{
+	display: block;
+}
+
+</style>
+<script type="text/javascript">
+	proc2 = ()=>{
+		location.href='proc.jsp?id=korea';
+	}
+	
+	
+</script>
+</head>
+<body>
+
+
+<div class="box">
+	<p>
+	&lt;input type="button" value="확인" onclick=<span>"location.href ='proc.jsp'"</span>>
+	</p>
+	<input type="button" value="확인" onclick="location.href ='proc.jsp'">
+	<input type="button" value="확인" onclick="location.href ='proc.jsp?id=홍길동'">
+	<div id="result1"></div>
+</div>
+<div class="box">
+	<p>
+	&lt;input type="button" value="확인" onclick=<span>"location.href ='proc.jsp'"</span>>
+	</p>
+	<input type="button" value="확인" onclick="proc2()">
+	<div id="result2"></div>
+</div>
+
+<div class="box">
+	<p>
+
+	</p>
+	<a href="proc.jsp?id=홍길동">proc.jsp?id=홍길동</a><br>
+	<a href="#" onclick="location.href='proc.jsp?id=a001'">location.href='proc.jsp?id=a001'</a><br>
+	<a href="#" onclick="proc2()">proc2()</a><br>
+	<a href="javascript:proc2()">javascript:proc2()</a><br>
+	<br><br>
+	<div id="result2"></div>
+</div>
+
+
+<script src="../js/rectprint.js"></script>
+</body>
+</html>

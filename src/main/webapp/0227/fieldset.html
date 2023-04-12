@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+label{
+	display: inline-block;
+	width: 100px;
+	height: 30px;
+}
+.gend{
+	width: 50px;
+	border: 1px solid green;
+}
+.gfe{
+	margin-left: 50px 
+}
+</style>
+<script type="text/javascript">
+function changeColor(){
+	var col=document.ff.col.value;
+	var form = document.ff;
+	form.style.backgroundColor=col;
+}
+</script>
+</head>
+<body>
+<form name="ff" action="fieldset.jsp" method="post">
+	<fieldset>
+		<legend>개인정보</legend>
+		
+		<label for="id">아이디</label>
+		 <input type="text" name="id" id="id" value="asdf" readonly="readonly"> 
+		<!--<input type="text" name="id" id="id" value="asdf" disabled="disabled">-->
+		<br>
+		<label for="name">이름</label>
+		<input type="text" name="name" id="name" required="required">
+		<br>
+		<label>전화번호</label>
+		<input type="text" name="tel" pattern="[0-9]{3}-[0-9]{3,4}-[0-9]{4}">
+		<br>
+		<label>이메일</label>
+		<input type="text" name="email" title="naver.com">
+		<br>
+		<label>주소</label>
+		<input type="text" name="addr">
+		<br>
+		<label>성별</label>
+		<input type="radio" name="gender" value="남성">남성
+		<input type="radio" name="gender" value="여성">여성
+		<br>
+		<label>생일</label>
+		<input type="date" name="bir">
+		<br>
+		<label class="gend">남성</label>
+		<input type="radio" name="gender2" value="남성">
+		<label class="gend gfe">여성</label>
+		<input type="radio" name="gender2" value="여성">
+		<br>
+		<label>사이즈number</label>
+		<input type="number" min="230" max="290" step="10" value="250">
+		<br>
+		<label>사이즈range</label>
+		<input type="range" min="230" max="290" step="10" value="250">
+		<br>
+		<label>웹페이지</label>
+		<input type="url" name="url">
+		<br>
+	</fieldset>
+	<label>색상</label>
+	<input type="color" name="col" onchange="changeColor()">
+	<br>
+	<input type="submit">
+</form>	
+
+</body>
+</html>

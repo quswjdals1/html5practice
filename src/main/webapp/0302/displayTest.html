@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	p{
+		font-size: 2.0em;
+		background: yellow;
+		
+		display: none;
+	}
+</style>
+<script type="text/javascript">
+function proc1() {
+	var p=document.getElementsByTagName("p");
+	if(p[0].style.display=='none'||p[0].style.display==""){
+		p[0].style.display = 'block'; 
+	}else{
+		p[0].style.display = 'none';
+	}
+}
+</script>
+</head>
+<body>
+	<p>무궁화 꽃이 피었습니다</p>
+	<br>
+	<button type="button" onclick="proc1()">보기/닫기</button>
+</body>
+</html>

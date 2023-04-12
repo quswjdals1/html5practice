@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+<script type="text/javascript">
+
+	proc1 = ()=>{
+		
+		setTimeout(function(){
+			document.getElementById('result1').style.background="black";
+		},1000)
+	}
+
+	proc2=(but)=>{
+		but.style.display="none";
+		gbut=but;
+		id = setInterval(setOut,500)
+		
+	}
+	stop=()=>{
+		clearInterval(id);
+		input = document.creat
+		gbut.style.display="inline";
+		input=document.createElement("input");
+		input.type="button";
+		input.value="test";
+		document.getElementsByClassName("box")[0].appendChild(input);
+	}
+	
+function setOut(){
+
+		a=parseInt(Math.random()*256);
+		b=parseInt(Math.random()*256);
+		c=parseInt(Math.random()*256);
+		document.getElementById('result2').style.background=`rgb(${a},${b},${c})`;
+	
+}
+
+
+</script>
+</head>
+<body>
+<div class="box">
+	<p>
+		settimeout(func,millisec)
+	</p>
+	<input type="button" value="sss" onclick="proc1()">
+
+	<div id="result1"></div>
+</div>
+
+<div class="box">
+	<p>
+		setInterval(func,millisec)
+		clearInterval(id): id변수에 실행을 종료시킴
+	</p>
+	<input type="button" value="sss" onclick="proc2(this)">
+	<input type="button" value="중지" onclick="stop()">
+	<div id="result2"></div>
+</div>
+
+<script src="../js/rectprint.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div,header,footer,section,aside,article{
+		border: 1px solid black;
+		margin: 3px;
+		padding: 2px;
+		box-sizing: border-box;
+		text-align: center;
+		border-radius: 25px;
+	}
+	#main{
+		display: flex;
+		flex-direction: column;
+	}
+	header,footer{
+		height: 160px;
+	}
+	#container{
+		display: flex;
+		flex: 100%;
+		flex-direction: row;
+		height: 600px;
+	}
+	@media   (max-width : 500px){
+		#container{
+			display: flex;
+			flex: 100%;
+			flex-direction: column;
+			height: auto;
+		}
+	}
+	aside{
+		flex: 30%;
+		padding-top: 100px;
+		background: rgb(235, 100, 52);
+		flex-shrink: 3;
+	}
+	section{
+		flex: 70%;
+		display: flex;
+		flex-direction: column;
+		background: lightgreen;
+	}
+	article{
+		flex: 50%;
+		margin: 15px;
+		background: green;
+	}
+	header{
+		background: yellow;
+	}
+	footer{
+		background: purple;
+	}
+	li{
+		text-align: left;
+	}
+	a{
+		text-align: left;
+	}
+</style>
+
+</head>
+<body>
+
+<div id="main">
+	<header>
+		<h1>MY BLOG PAGE</h1>
+		<p>시멘틱 태그로 만들어진 페이지</p>
+	</header>
+	
+	<div id="container">
+		<aside>
+			<h2>Links</h2>
+			<ul>
+				<li><a href="">w3schools</a></li>
+				<li><a href="">Naver</a></li>
+				<li><a href="">Daum</a></li>
+			</ul>
+			<img src="../images/image.1.jpg" alt="">
+			<br>
+			이름모를 꽃
+		</aside>
+		<section>
+			<article>
+				<h2>Semantic Tags</h2>
+				<p>시멘틱 요소 어쩌고 저쩌고시멘틱 요소 어쩌고 저쩌고시멘틱 요소 어쩌고 저쩌고시멘틱 요소 어쩌고 저쩌고시멘틱 요소 어쩌고 저쩌고시멘틱 요소 어쩌고 저쩌고시멘틱 요소 어쩌고 저쩌고시멘틱 요소 어쩌고 저쩌고시멘틱 요소 어쩌고 저쩌고시멘틱 요소 어쩌고 저쩌고</p>
+			</article>
+			<article>
+				<h2>div와 span</h2>
+				<p>div와 span 어쩌고 저쩌고div와 span 어쩌고 저쩌고div와 span 어쩌고 저쩌고div와 span 어쩌고 저쩌고div와 span 어쩌고 저쩌고div와 span 어쩌고 저쩌고div와 span 어쩌고 저쩌고div와 span 어쩌고 저쩌고div와 span 어쩌고 저쩌고div와 span 어쩌고 저쩌고div와 span 어쩌고 저쩌고</p>
+			</article>
+		</section>
+	</div>
+	
+	<footer>footer</footer>
+</div>
+
+</body>
+</html>

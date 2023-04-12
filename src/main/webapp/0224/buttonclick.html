@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function proc1(){
+	var a=document.getElementsByName("price");
+	var b=document.getElementsByName("qty");
+	
+	var div=document.getElementById("result");
+	var h2 = document.createElement("h2");
+	var text= document.createTextNode(a[0].value*b[0].value+"원 입니다.")
+	h2.append(text);
+	div.append(h2);
+}
+</script>
+<style>
+	form{
+		border: 1px solid red;
+		margin: 10px;
+		padding: 20px;
+	}
+	#result,#result2{
+		border: 1px solid yellow;
+		height: 100px;
+	}
+	#i{
+		width: 50px;
+		height: 50px;
+	}
+</style>
+</head>
+<body>
+	<form>
+		물품가격 <input type="text" name="price"><br>
+		수량 <input type="text" name="qty"><br>
+		<input type="button" value="확인"  onclick="proc1()">
+		<br><br>
+		<h1>결과값</h1>
+		<div id="result"></div>
+	</form>
+	
+	
+	<form action="calc.jsp" method="post">
+		물품가격 <input type="text" name="price2"><br>
+		수량 <input type="text" name="qty2"><br>
+		<input id=i type="image" src="../images/봄꽃1.jpeg" onclick="proc2()">
+		<br>
+		<p>이미지를 클릭하면 서버로 전송된다 즉 submit 기능 수행</p>
+		<br>
+		<h1>결과값</h1>
+		<div id="result2"></div>
+	</form>
+	
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+<script type="text/javascript">
+	
+	arr=[];
+	
+	proc1 = ()=>{
+		
+		while(true){
+			a=prompt("이름을 입력하세요");
+			if(a!=null){
+				a=a.trim();
+				if(a.length<1){
+					break
+				}
+			}
+			if(a==null){
+				break
+			}
+			arr.push(a);
+		}
+		if(arr.length==0){
+			document.getElementById("result1").innerHTML="요소없음";
+		}else{
+			document.getElementById("result1").innerHTML=arr;
+		}
+		
+	}
+	
+	proc2 = ()=>{
+		
+		arr2=[];
+		
+		while(true){
+			a=prompt("이름을 입력하세요");
+			
+			if(arr2.indexOf(a)==-1){
+				arr2.push(a);
+			}
+			
+			if(arr2.length==5){
+				break;
+			}
+		}
+
+			document.getElementById("result2").innerHTML=arr2;
+		
+	
+	}
+	
+</script>
+</head>
+<body>
+<div class="box">
+	<p>prompt로 계속 이름을 받아 배열에 저장하고 출력하는 프로그람<br>
+		입력의 마지막은 공백문자를 입력하거나 취소버튼을 눌렀을때(null)
+	</p>
+	<input type="button" value="확인" onclick="proc1()">
+	
+	<div id="result1"></div>
+</div>
+
+
+<div class="box">
+	<p>prompt로 계속 이름을 받아 배열에 저장하고 출력하는 프로그람<br>
+		중복되지 않은 데이터 5개만 배열에 넣고 5개 차면 출력
+	</p>
+	<input type="button" value="확인" onclick="proc2()">
+	
+<div id="result2"></div>
+</div>
+<script src="../js/rectprint.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+<script type="text/javascript">
+	var rect = {
+			width:12,
+			height:9,
+			/*
+			getArea:function(){
+				
+			},
+			getCircum:function(){
+				
+			}
+			*/
+			getArea(){
+				return parseInt(this.width)*parseInt(this.height)
+			},
+			getCircum(){
+				return 2*(parseInt(this.width)+parseInt(this.height))
+			}
+	}
+	
+	//proc1=function(){}
+	proc1 = ()=>{
+		/*
+		rect.name="사각형";
+		str=`가로 ${rect.width} <br>`;
+		str+=`세로 ${rect.height} <br>`;
+		str+=`area ${rect.getArea()} <br>`;
+		str+=`circum ${rect.getCircum()} <br>`;
+		str+=`이름 ${rect.name} <br>`;
+		document.getElementById('result1').innerHTML=str;
+		*/
+		printInfo(rect,"result1");
+	}
+	proc2=()=>{
+		freg = /^[0-9]+$/;
+		a=prompt("첫번쨰 값 입력");
+		b=prompt("두쨰 값 입력");
+		c=prompt("이름입력");
+		if(!(freg.test(a)&&freg.test(b))){
+			alert("숫자가 아닙니다.")
+			return;
+		}
+		rect.width=parseInt(a);
+		rect.height=parseInt(b);
+		rect.name=c;
+		
+		area=rect.getArea();
+		cir=rect.getCircum();
+
+		printInfo(rect,"result2");
+		
+	}
+</script>
+</head>
+<body>
+<div class="box">
+	<p>리터럴 방식의 rect객체
+	속성	: width, height
+	메소드 : getArea(), getCircum()
+	</p>
+	<input type="button" value="확인" onclick="proc1()">
+	
+	<div id="result1"></div>
+</div>
+
+<div class="box">
+	<p>리터럴 방식의 rect객체
+	가로,세로의 값을 입력하여 출력<br>
+	메소드 : getArea(), getCircum()
+	</p>
+	<input type="button" value="확인" onclick="proc2()">
+	
+	<div id="result2"></div>
+</div>
+<script src="../js/rectprint.js"></script>
+</body>
+</html>

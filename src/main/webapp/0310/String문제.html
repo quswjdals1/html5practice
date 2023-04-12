@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+<script type="text/javascript">
+
+	proc1 = ()=>{
+		
+		input=prompt("주민번호를 입력하세요(111111-1111111)");
+		
+		yy=input.substr(0,2);
+		mm=input.substr(2,2);
+		dd=input.substr(4,2);
+		ygend=input.substr(7,1);
+		
+		if(ygend=="1"||ygend=="3"){
+			gender="남자";
+		}else{
+			gender="여자";
+		}
+		if(ygend=="1"||ygend=="2"){
+			bir="19"+yy;
+		}else{
+			bir="20"+yy;
+		}
+		
+		curD= new Date();
+		birD=new Date(`${bir}.${mm}.${dd}`);
+		
+		dif=(curD.getTime()-birD.getTime())/1000/60/60/24/365;
+		
+		
+		str=`생년월일: ${bir}<br>`;
+		str+=`나이(만): ${Math.ceil(dif)}<br>`;
+		str+=`성별: ${gender}<br>`
+		
+		document.getElementById('result1').innerHTML=str;
+	}
+	proc2 =()=>{
+		multi="234567892345"
+		a=prompt("주민번호 입력")
+		s=a.replace("-","");
+		sum=0;
+
+		for(var i=0; i<12; i++){
+			sum+=parseInt(multi.charAt(i))*parseInt(s.charAt(i));
+		}
+		div=11-sum%11;
+		
+		if(div>=0&&div<10){
+			res=div;
+		}else if(div==10){
+			res=0;
+		}else{
+			res=1;
+		}
+		if(s.charAt(12)==res){
+			document.getElementById('result2').innerHTML="통과";
+		}else{
+			document.getElementById('result2').innerHTML="불통";
+		}
+		
+	}
+
+	
+</script>
+</head>
+<body>
+<div class="box">
+	<p>
+	PROMPT로 주민번호를 입력받아 생년월일 과 성별 , 나이 출력
+	</p>
+	<input type="button" value="sss" onclick="proc1()">
+
+	<div id="result1"></div>
+</div>
+
+
+<div class="box">
+	<p>주민번호 유효성 검증
+	</p>
+	<input type="button" value="확인" onclick="proc2()">
+	
+<div id="result2"></div>
+</div>
+<script src="../js/rectprint.js"></script>
+</body>
+</html>

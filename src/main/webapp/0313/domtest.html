@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+<style type="text/css">
+	img{
+		width: 70px;
+		height: 70px;
+		border-radius: 50%;
+	}
+	#imgd{
+		width: 80%;
+		margin: 10px;
+		height: 100px;
+		border: 5px double blue;
+	}
+	#imgd img{
+		width: 100px;
+		height: 100px;
+	}
+</style>
+<script type="text/javascript">
+
+	proc1 = () =>{
+		ultag = document.getElementsByTagName('ul')[0];
+		itemlist = ultag.getElementsByTagName('li');
+		
+		str="";
+		for (var i = 0; i < itemlist.length; i++) {
+			str+=itemlist[i].firstChild.data+"<br>";
+		}
+		
+		document.getElementById("result1").innerHTML=str;
+	}
+
+	
+	
+	proc2=()=>{
+		ultag = document.getElementsByTagName('ul')[1];
+		listitem=ultag.getElementsByTagName('li');
+		for (var i = 0; i < listitem.length; i++) {
+			text=listitem[i].firstChild.data;
+			img = document.createElement('img');
+			img.src="../images/"+text;
+			img.style.width="100px";
+			img.style.height="100px";
+			img.style.borderRadius="50%";
+			listitem[i].appendChild(img);	
+		}	
+	}
+	
+	
+	proc3=(litag)=>{
+		text=litag.firstChild.data;
+		img = document.createElement('img');
+		img.src="../images/"+text;
+		img.style.width="100px";
+		img.style.height="100px";
+		img.style.borderRadius="50%";
+		litag.appendChild(img);
+	}
+	arr=["hello","happy","안녕", "알사탕", "굿모닝","javascript","html","css","인간햇살"]
+	proc4=()=>{
+		
+		
+		rand = parseInt(Math.random()*arr.length);
+		
+		text = document.createTextNode(arr[rand]);
+		p = document.createElement('p');
+		p.appendChild(text);
+		document.getElementById("result4").appendChild(p);
+		
+	}
+	
+	delproc=()=>{
+		div=document.getElementById("result4");
+		div.removeChild(div.lastChild);
+	}
+	
+	
+	proc5=()=>{
+		
+		arr=["hello","happy","안녕", "알사탕", "굿모닝","javascript","html","css","인간햇살"]
+		rand = parseInt(Math.random()*arr.length);
+		input = document.createElement('input');
+		input.type="button";
+		input.onclick=function(){
+			delproc2(this);		//this쓰려면 람다식 쓰면 안됨
+		};
+		input.value="삭제";
+		
+		text = document.createTextNode(arr[rand]);
+		p = document.createElement('p');
+		p.appendChild(text);
+		p.appendChild(input);
+		document.getElementById("result5").appendChild(p);
+		
+	}
+	delproc2=(input)=>{
+		input.parentNode.remove();
+	}
+	
+	
+	gim=null;
+	proc6=(but)=>{
+		but.style.display="none";
+		gbut=but;
+		id = setInterval(append,500)
+		if(gim!=null){
+			gim.style.border="0";
+		}
+		im=document.querySelectorAll(".im");
+
+	}
+	stop=()=>{
+		clearInterval(id);
+		input = document.creat
+		gbut.style.display="inline";
+		
+		im2=document.querySelectorAll(".im");
+		
+		rand = parseInt(Math.random()*im.length);
+		gim=im[rand];
+		gim.style.border="5px solid red";
+
+	}
+	append = ()=>{
+		div = document.getElementById("imgd");
+		f = div.firstChild;
+		div.appendChild(f);
+	}
+	
+</script>
+</head>
+<body>
+
+
+<div class="box">
+	<p>
+	</p>
+	<ul>
+		<li>List Item1</li>
+		<li>List Item2</li>
+		<li>List Item3</li>
+		<li>List Item4</li>
+		<li>List Item5</li>
+	</ul>
+	<input type="button" value="확인" onclick="proc1()">
+	<div id="result1"></div>
+</div>
+
+
+<div class="box">
+	<p>
+		li요소의 text를 가져와서 img객체를 생성하여 추가한다.
+	</p>
+	<ul>
+		<li>spongebob.png</li>
+		<li>딸기스무디.jpg</li>
+		<li>카페라떼.jpg</li>
+		<li>펭귄.jpg</li>
+		<li>코알라.jpg</li>
+	</ul>
+	<input type="button" value="확인" onclick="proc2()">
+	<div id="result2"></div>
+</div>
+
+
+<div class="box">
+	<p>
+		li요소의 onclick 이벤트로 text를 가져와서 img객체를 생성하여 추가한다.
+	</p>
+	<ul>
+		<li onclick="proc3(this)">spongebob.png</li>
+		<li onclick="proc3(this)">딸기스무디.jpg</li>
+		<li onclick="proc3(this)">카페라떼.jpg</li>
+		<li onclick="proc3(this)">펭귄.jpg</li>
+		<li onclick="proc3(this)">코알라.jpg</li>
+	</ul>
+	<div id="result3"></div>
+</div>
+
+<div class="box">
+	<p>
+		랜덤으로 발생되는 문자열을 textnode로 생성하고
+		p 태그를 생성하여 텍스트노드를 추가한다.
+		result4번에 p태그를 추가한다.
+	</p>
+	
+	<input type="button" value="추가" onclick="proc4()">
+	<input type="button" value="삭제" onclick="delproc()">
+	<div id="result4"></div>
+</div>
+
+
+<div class="box">
+	<p>
+		랜덤으로 발생되는 문자열을 textnode로 생성하고
+		p 태그를 생성하여 텍스트노드를 추가한다.
+		result5번에 p태그를 추가한다.
+	</p>
+	
+	<input type="button" value="추가" onclick="proc5()">
+	<div id="result5"></div>
+</div>
+
+
+
+<div class="box">
+	<p>
+		1초간격으로 첫번째 이미지를 맨뒤로 추가함
+	</p>
+	<div id="imgd">
+		<img class="im" src="../images/국화.jpg" alt="">
+		<img class="im" src="../images/딸기스무디.jpg" alt="">
+		<img class="im" src="../images/수국2.jpg" alt="">
+		<img class="im" src="../images/에스프레소.jpg" alt="">
+		<img class="im" src="../images/Penguins.jpg" alt="">
+	</div>
+	
+	<input type="button" value="시작" onclick="proc6(this)">
+	<input type="button" value="종료" onclick="stop()">
+	<div id="result6"></div>
+</div>
+
+<script src="../js/rectprint.js"></script>
+</body>
+</html>

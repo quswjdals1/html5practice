@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+<script type="text/javascript">
+	
+function MyRect(width, height){
+	this.width = width;
+	this.height = height;
+	
+	this.getArea=function(){
+		return this.width*this.height;
+	};
+	
+	this.getCircum=function(){
+		return (parseInt(this.height)+parseInt(this.width))*2;
+	};
+}
+
+proc1=()=>{
+	rect=new MyRect(5,3);
+	
+	printInfo(rect,"result1")
+}
+
+proc2 = ()=>{
+	my2=new MyRect(34,56);
+	MyRect.prototype.name="ㅁ";
+	printInfo(my2,"result2")
+}
+</script>
+</head>
+<body>
+<div class="box">
+	<p>
+	</p>
+	<input type="button" value="확인" onclick="proc1()">
+	
+	<div id="result1"></div>
+</div>
+
+<div class="box">
+	<p>
+	</p>
+	<input type="button" value="확인" onclick="proc2()">
+	
+	<div id="result2"></div>
+</div>
+
+<script src="../js/rectprint.js"></script>
+</body>
+</html>

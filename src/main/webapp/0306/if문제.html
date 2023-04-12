@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="../css/mystyle.css" rel="stylesheet">
+<script type="text/javascript">
+		
+function proc1(){
+		
+		a = parseInt(prompt("수1 입력"));
+		b = parseInt(prompt("수2 입력"));
+		op= prompt("연산자 입력");
+		
+		res="";
+		switch(op){
+		case "+":
+			res=a+b;
+			break;
+		case "-":
+			res=a-b;
+			break;
+		case "*":
+			res=a*b;
+			break;
+		case "/":
+			res=a/b;
+			break;
+		}
+		
+		str=`${a} ${op} ${b} = ${res}`
+		
+		div = document.getElementById("result");
+		text = document.createTextNode(a+op+b+"="+res);
+		div.appendChild(text);
+	}
+	proc3 = function(){
+		f = prompt("첫번째 입력");
+		s = prompt("두번째 입력");
+		if(f==s){
+			res="비겼습니다.";
+		}
+		else if(f=="가위"&&s=="보"||f=="바위"&&s=="가위"||f=="보"&&s=="바위"){
+			res="첫번째 사람이 이겼습니다.";	
+		}else{
+			res="두번째 사람이 이겼습니다."
+		}
+		
+		str = `첫번째 사람 ${f} <br>`;
+		str += `두번째 사람 ${s} <br>`;
+		str += `결과 ${res}`;
+		
+		document.getElementById("result3").innerHTML=str;
+	}
+	
+	
+function proc2(){
+	a=prompt("수입력 1~100");
+	
+	switch(parseInt(a/10)){
+	case 10: case9:
+		res="A";
+		break;
+	case 8:
+		res="B";
+		break;
+	case 8:
+		res="C"
+		break;
+	case 8:
+		res="D"
+		break;
+	default:
+		res="F"
+		break;
+	}
+	
+	str1="점수 = "+a+"\n";
+	str2="학점 = "+ res + "\n";
+	
+	text1=document.createTextNode(str1);
+	text2=document.createTextNode(str2);
+	document.getElementById("result2").appendChild(text1);
+	document.getElementById("result2").appendChild(text2);
+}
+
+
+</script>
+</head>
+<body>
+<div class="box">
+	<p>숫자 2개와 연산자를 1개 입력 받아 연산자에 맞느 계산결과를 출력</p>
+	입력 : prompt<br>
+	출력 : div요소를 이용 - innerHTML/innerText<br>
+	
+	백틱을 이용한 출력내용 - 템플릿 리터럴<br>
+	일반 문자열의 +기호와 ""를 쓰지 않고 단순하게 처리
+	변수를 표현할때는 ${변수}<br>
+	<br>
+	<input type="button" value="버튼" onclick="proc1()">
+	<div id="result"></div>
+</div>
+<div class="box">
+	<p>학점 출력</p>
+	입력 : prompt<br>
+	출력 : div요소를 이용 - innerHTML/innerText<br>
+	
+	백틱을 이용한 출력내용 - 템플릿 리터럴<br>
+	일반 문자열의 +기호와 ""를 쓰지 않고 단순하게 처리
+	변수를 표현할때는 ${변수}<br>
+	<br>
+	<input type="button" value="버튼" onclick="proc2()">
+	<div id="result2"></div>
+</div>
+
+<div class="box">
+	<p>가위바위보</p>
+	입력 : prompt<br>
+	출력 : div요소를 이용 - innerHTML/innerText<br>
+	
+	백틱을 이용한 출력내용 - 템플릿 리터럴<br>
+	일반 문자열의 +기호와 ""를 쓰지 않고 단순하게 처리
+	변수를 표현할때는 ${변수}<br>
+	<br>
+	<input type="button" value="버튼" onclick="proc3()">
+	<div id="result3"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+<script type="text/javascript">
+	
+	let rect = {}
+	
+	proc1 = ()=>{
+		//빈객체에 속성 추가
+		rect.width=34;
+		rect.height=25;
+		rect.name="사각형";
+		
+		rect.getArea=function(){
+			return this.width*this.height;
+		}
+		rect.getCircum=function(){
+			return (parseInt(this.width)+parseInt(this.height))*2;
+		}
+		
+		/*
+		rect.getArea(){
+			return this.width*this.height;
+		}
+		*/
+		printInfo(rect,"result1");
+	}
+	
+</script>
+</head>
+<body>
+<div class="box">
+	<p>빈 객체 선언 let rect={}<br>
+	선언 후 속성과 메소드를 추가<br>
+	정보출력-외부 스크립트<br>
+	&lt;script src="../js/rectprint.js">&lt;/script>
+	</p>
+	<input type="button" value="확인" onclick="proc1()">
+	
+	<div id="result1"></div>
+</div>
+<script src="../js/rectprint.js"></script>
+</body>
+</html>

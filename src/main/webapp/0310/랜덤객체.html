@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+<script type="text/javascript">
+	res=parseInt(Math.random()*100+1);
+	dump="";
+	count=0;
+	proc1 = ()=>{
+
+		input = document.getElementById("in").value;
+		dump+=" "+input;
+		count++;
+		str="";
+		if(input==res){
+			str="맞췄습니다!"+count+"회 걸렸고,<br>기록: ";
+			str+=dump+' ';
+		}else if(input<res){
+			str="더 큰수입니다."
+		}else{
+			str="더 작은수 입니다.";
+		}
+		
+		document.getElementById("in").value="";
+		document.getElementById("in").focus();
+		document.getElementById("result1").innerHTML=str;
+	}
+	
+	proc2=()=>{
+		arr=[];
+		
+		while(arr.length<6){
+			a=parseInt(Math.random()*45+1);
+			if(arr.indexOf(a)==-1){
+				arr.push(a);
+			}
+		}
+		
+		document.getElementById("result2").innerHTML=arr;
+		
+	}
+
+	
+</script>
+</head>
+<body>
+<div class="box">
+	<p>
+	난수를 발생시켜서 1부터 100사이 숫자 입력해서 맞추기
+	</p>
+	<input type="button" value="확인" onclick="proc1()">
+	<input type="text" id="in">
+	<div id="result1"></div>
+</div>
+
+<div class="box">
+	<p>
+	로또번호를 생성하는 프로그램을 작성하시오(1~45번중 6개의 번호를 추첨)
+	</p>
+	<input type="button" value="확인" onclick="proc2()">
+	<div id="result2"></div>
+</div>
+
+
+<script src="../js/rectprint.js"></script>
+</body>
+</html>

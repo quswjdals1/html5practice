@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 	function proc1(op){
+		this; //proc1()함수를 호출한 button객체
+	}
+	proc1=function(op){
+		this; //proc1()함수를 호출한 button객체
+	} */
+	proc1 = (op)=>{
+		//this; // 람다함수, 현재 함수 그자체
+		
+		
+		//정규식 /^ $/ 
+		freg = /^[0-9]+$/; //  /^[0-9]:0~9의 숫자로 시작   +:1개이상  &/:으로 끝나는
+		
+	
+		switch(op){
+			case "-":
+				res=sub();
+				break;
+			case "+":
+				res=add();
+				break;
+			case "*":
+				res=mul();
+				break;
+			case "/":
+				res=div();
+				break;
+		}
+		
+		document.getElementById('result1').innerHTML=res;
+	}
+	
+	
+	function sub(){
+		var f=document.getElementById("f").value;
+		var s=document.getElementById("s").value;
+		f=parseInt(f);
+		s=parseInt(s);
+		console.log(f, s);	
+		return f-s;
+	}
+	function add(){
+		var f=document.getElementById("f").value;
+		var s=document.getElementById("s").value;
+		f=parseInt(f);
+		s=parseInt(s);
+		
+		return f+s;
+	}
+	function mul(){
+		var f=document.getElementById("f").value;
+		var s=document.getElementById("s").value;
+		f=parseInt(f);
+		s=parseInt(s);
+		
+		return f*s;
+	}
+	function div(){
+		var f=document.getElementById("f").value;
+		var s=document.getElementById("s").value;
+		f=parseInt(f);
+		s=parseInt(s);
+		
+		return f/s;
+	}
+	
+	
+	
+	
+	
+</script>
+</head>
+<body>
+<input type="text" id="f">
+<input type="text" id="s">
+<input type="button" value="+" onclick="proc1('+')">
+<input type="button" value="-" onclick="proc1('-')">
+<input type="button" value="*" onclick="proc1('*')">
+<input type="button" value="/" onclick="proc1('/')">
+<br><br>
+<div id="result1"></div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	
+	p:nth-child(2n) {
+		background-color: red;
+	}
+	p:nth-child(2n+1) {
+		background-color: gray;
+	}p:first-child {
+		background-color: yellow;
+	}
+	
+	
+	
+	
+	table{
+		border: 2px solid blue; 
+	}
+	td{
+		width: 200px;
+		height: 50px;
+	}
+	
+	tr:nth-child(2n) {
+		background-color: lightgreen;
+	}
+	
+	#tab2 td:nth-child(2n){
+		background-color: blue;
+	}
+	#tab2 tr:first-child td {
+		background: yellow;
+		text-align: center;
+		font-weight: bold;
+	}
+	
+</style>
+</head>
+<body>
+
+<div>
+	<p>1무궁화 <span>꽃이</span> 피었습니다.</p>
+	<p>2무궁화 <span>꽃이</span> 피었습니다.</p>
+	<p>3무궁화 꽃이 피었습니다.</p>
+	<p>4무궁화 꽃이 피었습니다.</p>
+	<p>5무궁화 꽃이 피었습니다.</p>
+	<p>6무궁화 꽃이 피었습니다.</p>
+	<span>7무궁화 꽃이 피었습니다.</span>
+</div>
+<hr>
+<div>
+	<p>1무궁화 <span>꽃이</span> 피었습니다.</p>
+	<p>2무궁화 <span>꽃이</span> 피었습니다.</p>
+	<p>3무궁화 꽃이 피었습니다.</p>
+	<p>4무궁화 꽃이 피었습니다.</p>
+	<p>5무궁화 꽃이 피었습니다.</p>
+	<p>6무궁화 꽃이 피었습니다.</p>
+	<span>7무궁화 꽃이 피었습니다.</span>
+</div>
+
+<table border="1">
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr> 
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr> 
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr> 
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr> 
+</table>
+<br><br>
+<table border="1" id="tab2">
+	<tr>
+		<td>이름</td>
+		<td>전화번호</td>
+		<td>이메일</td>
+		<td>주소</td>
+	</tr> 
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr> 
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr> 
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr> 
+</table>
+
+</body>
+</html>

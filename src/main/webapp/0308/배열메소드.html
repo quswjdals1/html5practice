@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/mystyle.css">
+<script type="text/javascript">
+	const arr = ["바나나","사과","복숭아","참외","사과","파인애플","바나나","사과","망고"];
+	
+	proc1=()=>{
+		//idx = arr.indexOf("사과");
+		//alert("사과는 "+idx+"번째 있습니다.");
+		
+		item = prompt("찾는 과일 입력")
+		idx=arr.indexOf(item);
+		
+		str=`찾는 과일: ${item}<br>`;
+		
+		if(idx==-1){
+			str+=`배열요소에 없습니다<br>`	
+		}else{
+			str+=`${idx}번째에 있습니다.`
+		}
+		
+		document.getElementById('result1').innerHTML=str;
+	}
+	proc2=()=>{
+		//idx = arr.lastIndexOf("사과");
+		//alert("사과는 "+idx+"번째 있습니다.");
+		
+		item = prompt("찾는 과일 입력")
+		idx=arr.lastIndexOf(item);
+		
+		str=`찾는 과일: ${item}<br>`;
+		
+		if(idx==-1){
+			str+=`배열요소에 없습니다<br>`	
+		}else{
+			str+=`${idx}번째에 있습니다.`
+		}
+		
+		document.getElementById('result2').innerHTML=str;
+	}
+	proc3=()=>{
+		item = prompt("찾는 과일 입력");
+		idx=0;
+		str=item+": ";
+		flag = false;
+		
+		while(true){
+			temp=arr.indexOf(item,idx);
+			if(temp==-1){
+				if(idx==0){
+					flag=true;
+				}
+				break;
+			}
+			str+=`${temp} `;
+			idx=temp+1;
+		}
+		if(flag){
+			str+="배열에 해당 값이 존재하지 않습니다."
+		}else{
+			str+="번째에 있습니다."
+		}
+		document.getElementById('result3').innerHTML=str;
+	}
+	
+	proc4=()=>{
+		str=`원래배열 : ${arr} <br>`;
+		arr.push(100,200,300);
+		str+=`추가후 배열 : ${arr} <br>`
+		document.getElementById('result4').innerHTML=str;
+	}
+	proc5=()=>{
+		str=`원래배열 : ${arr} <br>`;
+		value = arr.pop();
+		str+=`삭제후 배열 : ${arr} <br>`
+		str+=`삭제 요소: ${value}`
+		document.getElementById('result5').innerHTML=str;
+	}
+	proc6=()=>{
+		str=`원래배열 : ${arr} <br>`;
+		arr2=arr.slice(1,5);
+		str+=`추출후 배열 : ${arr} <br>`
+		str+=`추출된 배열 : ${arr2} <br>`
+		document.getElementById('result6').innerHTML=str;
+	}
+	proc7=()=>{
+		
+		item = prompt("찾는 과일 입력");
+		start=0;
+		end=-1;
+		str="arr 초기상태: "+arr+"<br>";
+		str+=item+"를 제외한 배열: ";
+		flag=false;
+		
+		result=[];
+		
+		while(true){
+			end=arr.indexOf(item,start);
+			if(end==-1){
+				if(start==0){
+					flag=true;
+				}else{
+					result.push(...arr.slice(start,arr.length));
+				}
+				break;
+			}
+			result.push(...arr.slice(start,end));
+			start=end+1;
+		}
+		
+		if(flag){
+			str+=arr;
+		}else{
+			str+=result;
+		}
+		document.getElementById('result7').innerHTML=str;
+		
+	}
+	proc8=()=>{
+		str=`원래배열 : ${arr} <br>`;
+		arr.splice(2,2,100,200,300)
+		str+=`수정후 배열 : ${arr} <br>`
+	
+		document.getElementById('result8').innerHTML=str;
+	}
+	proc9=()=>{
+		str=`원래배열 : ${arr} <br>`;
+		arr.splice(3,1)
+		str+=`삭제후 배열: ${arr} <br>`
+	
+		document.getElementById('result9').innerHTML=str;
+	}
+	
+	proc10=()=>{
+		str=`원래배열 : ${arr} <br>`;
+		arr2=arr.join("!!!");
+		str+=`join후 배열: ${arr2} <br>`
+	
+		document.getElementById('result10').innerHTML=str;
+	}
+</script>
+</head>
+<body>
+<div class="box">
+	<p>배열요소의 위치 찾기
+	indexOf()
+	lastIndexOf
+	</p>
+	<input type="button" value="index" onclick="proc1()">
+	<input type="button" value="last" onclick="proc2()">
+	<input type="button" value="index여러개" onclick="proc3()">
+	<div id="result1"></div>
+	<div id="result2"></div>
+	<div id="result3"></div>
+</div>
+
+<div class="box">
+	<p>배열요소의 추가/삭제<br>
+	push(a,b,c,...)<br>
+	pop():마지막 요소를 제거후 리턴
+	</p>
+	<input type="button" value="push" onclick="proc4()">
+	<input type="button" value="pop" onclick="proc5()">
+	<div id="result4"></div>
+	<div id="result5"></div>
+</div>
+
+<div class="box">
+	<p>배열요소의 추출<br>
+	slice(start,end):start~(end-1)까지 추출해서 새로운 배열을 만듬<br>
+	</p>
+	<input type="button" value="slice" onclick="proc6()">
+	<input type="button" value="slice" onclick="proc7()">
+	<div id="result6"></div>
+	<div id="result7"></div>
+</div>
+
+
+<div class="box">
+	<p>배열의 수정-삽입, 삭제<br>
+	splice(index,n,a,b,c....):index위치에서 n개를 삭제하고 a,b,c아이템을 삽입한다.<br>
+	n이 0이면 삭제없이 추가한다.<br>
+	splice(index,n) index위치에서 n개를 삭제한다.
+	</p>
+	<input type="button" value="splice" onclick="proc8()">
+	<input type="button" value="splice" onclick="proc9()">
+	<div id="result8"></div>
+	<div id="result9"></div>
+</div>
+
+<div class="box">
+	<p>배열의 문자열변환<br>
+	join(구분자): 구분자를 기준으로 모든 요소를 하나의 문자열로 합친다.<br>
+	구분자를 생략할 시 , 가 디폴트값이다.
+	</p>
+	<input type="button" value="join" onclick="proc10()">
+	<input type="button" value="join" onclick="proc11()">
+	<div id="result10"></div>
+	<div id="result11"></div>
+</div>
+
+
+<script src="../js/rectprint.js"></script>
+</body>
+</html>
